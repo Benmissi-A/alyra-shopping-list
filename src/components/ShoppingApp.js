@@ -3,19 +3,22 @@ import AddPopularProducts from "./AddPopularProducts"
 import AddProductForm from "./AddProductForm"
 import { useState } from 'react'
 
-const shoppingApp = () => {
+const ShoppingApp = () => {
     const [shopping, setShopping] = useState(["cumin", "curry","café"])
     const addToShoppingList = (product) => {
       setShopping([...shopping,product])
     }
-    const removeToShoppingList = (product) => {
+    const removeFromShoppingList = (product) => {
       setShopping(shopping.filter(el => el !==product))
     }
 
   return(
     <main className="row">
       <section className="col-lg-8">
-        <ShoppingList shopping={shopping}/>
+        <ShoppingList 
+          shopping={shopping}
+          setShoping={setShopping}
+          removeFromShoppingList={removeFromShoppingList}/>
       </section>
       <section className="col-lg-4">
         <div className="bg-light border p-4">
@@ -23,11 +26,14 @@ const shoppingApp = () => {
           <AddProductForm 
             shopping={shopping}
             addToShoppingList={addToShoppingList}
-            removeToShoppingList={removeToShoppingList} />
-          <AddPopularProducts />
+          />
+          <AddPopularProducts 
+            shopping={shopping}
+            addToShoppingList={addToShoppingList}
+          />
         </div>
       </section>
     </main>
   )
 }
-export default shoppingApp
+export default ShoppingApp

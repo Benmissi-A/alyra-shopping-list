@@ -1,10 +1,12 @@
 import Header from './components/Header'
-import shoppingApp from './components/ShoppingApp'
+import ShoppingApp from './components/ShoppingApp'
+
+
 function App() {
   return (
     <div className="container">
       <Header />
-      <shoppingApp />
+      <ShoppingApp />
     </div>
   );
 }

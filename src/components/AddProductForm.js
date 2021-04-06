@@ -1,10 +1,10 @@
 const AddProductForm = (props) => {
-  const {addToShoppingList} = props
+  const {addToShoppingList,shopping} = props
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
     const newProduct = event.target.elements.product.value
-    if(!shoppingApp.includes(newProduct)){
+    if(!shopping.includes(newProduct)){
       addToShoppingList(newProduct)
     }else{
       alert(`le produit est deja sur la liste`)
